@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meme Zone Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="login-box">
+  <h1>😂 Meme Zone</h1>
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Enter Meme Zone</button>
+</div>
+
+<script>
+  const users = {
+    achyuta: "achyuta@2007",
+    ram: "rama@2006",
+    sonu: "sonu@2007",
+    rakesh: "rakesh@2006"
+  };
+
+  function login() {
+    const u = username.value.trim();
+    const p = password.value.trim();
+
+    if (users[u] && users[u] === p) {
+      localStorage.setItem("memeUser", u);
+      window.location.href = "meme-zone.html";
+    } else {
+      alert("Invalid username or password");
+    }
+  }
+</script>
+
+</body>
+</html>

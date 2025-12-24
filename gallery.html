@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Room Memories</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <h1 class="title">📸 Room Memories</h1>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <a href="index.html">🏠 Home</a>
+      <a href="roommates.html">👥 Roommates</a>
+      <a href="birthdays.html">🎂 Birthdays</a>
+      <a href="#" class="lock">😂 Meme Zone 🔒</a>
+    </nav>
+
+    <!-- Gallery -->
+    <div class="gallery-grid">
+
+      <!-- Item 1 -->
+      <div class="gallery-item">
+        <img src="images/gallery/birthday1.jpeg" onclick="openModal(this)">
+        <div class="memory-info">
+          <span>🎂 Birthday</span>
+          <div class="actions">
+            <button onclick="toggleLike(this)" data-id="birthday1">❤️ <span>0</span></button>
+            <a href="images/gallery/birthday1.jpeg" download>⬇️</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="gallery-item">
+        <img src="images/gallery/trip1.jpeg" onclick="openModal(this)">
+        <div class="memory-info">
+          <span>🚌 Trip</span>
+          <div class="actions">
+            <button onclick="toggleLike(this)" data-id="trip1">❤️ <span>0</span></button>
+            <a href="images/gallery/trip1.jpeg" download>⬇️</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="gallery-item">
+        <img src="images/gallery/group1.jpeg" onclick="openModal(this)">
+        <div class="memory-info">
+          <span>🎮 Group</span>
+          <div class="actions">
+            <button onclick="toggleLike(this)" data-id="fun1">❤️ <span>0</span></button>
+            <a href="images/gallery/group1.jpeg" download>⬇️</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="imgModal" class="modal" onclick="closeModal()">
+    <img id="modalImg">
+  </div>
+
+  <!-- JS -->
+  <script>
+    function openModal(img) {
+      document.getElementById("imgModal").style.display = "flex";
+      document.getElementById("modalImg").src = img.src;
+    }
+
+    function closeModal() {
+      document.getElementById("imgModal").style.display = "none";
+    }
+
+    function toggleLike(btn) {
+      const id = btn.dataset.id;
+      const key = "like_" + id;
+      const span = btn.querySelector("span");
+      let count = parseInt(span.innerText);
+
+      if (localStorage.getItem(key) === "true") {
+        // DISLIKE
+        span.innerText = Math.max(0, count - 1);
+        localStorage.removeItem(key);
+        btn.style.color = "white";
+      } else {
+        // LIKE
+        span.innerText = count + 1;
+        localStorage.setItem(key, "true");
+        btn.style.color = "#ff4d6d";
+      }
+    }
+
+    // Restore like state
+    window.onload = () => {
+      document.querySelectorAll(".actions button").forEach(btn => {
+        const id = btn.dataset.id;
+        if (localStorage.getItem("like_" + id) === "true") {
+          btn.style.color = "#ff4d6d";
+        }
+      });
+    };
+  </script>
+
+</body>
+</html>

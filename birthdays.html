@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roommates Birthdays 🎂</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <h1 class="title">🎂 Birthday Zone</h1>
+
+    <nav class="nav">
+      <a href="index.html">🏠 Home</a>
+      <a href="roommates.html">👥 Roommates</a>
+      <a href="gallery.html">📸 Gallery</a>
+      <a href="meme-login.html" class="lock">😂 Meme Zone 🔒</a>
+    </nav>
+
+    <!-- Birthday Cards -->
+    <div class="birthday-grid">
+
+      <div class="birthday-card" data-name="Achyuta" data-date="10-10">
+        <img src="images/roommates/achyuta.jpeg">
+        <h3>Achyuta</h3>
+        <p class="date">🎉 10 october</p>
+        <p class="countdown"></p>
+        <span class="tag">Villain 😈</span>
+      </div>
+
+      <div class="birthday-card" data-name="Ram" data-date="08-16">
+        <img src="images/roommates/ram.jpeg">
+        <h3>Ram</h3>
+        <p class="date">🎉 16 August/p>
+        <p class="countdown"></p>
+        <span class="tag">Movie Lover 🎬</span>
+      </div>
+
+      <div class="birthday-card" data-name="Sonu" data-date="09-24">
+        <img src="images/roommates/sonu1.jpeg">
+        <h3>Sonu</h3>
+        <p class="date">🎉 24 September</p>
+        <p class="countdown"></p>
+        <span class="tag">Gamer 🎮</span>
+      </div>
+
+      <div class="birthday-card" data-name="Rakesh" data-date="04-18">
+        <img src="images/roommates/rakesh.jpeg">
+        <h3>Rakesh</h3>
+        <p class="date">🎉 18 April</p>
+        <p class="countdown"></p>
+        <span class="tag">Food Lover 🍔</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Birthday Popup -->
+  <div id="birthdayModal" class="modal">
+    <div class="modal-content">
+      <h2>🎉 Happy Birthday 🎉</h2>
+      <p id="birthdayName"></p>
+      <button onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- Confetti -->
+  <canvas id="confetti"></canvas>
+
+  <!-- Music -->
+  <audio id="birthdayMusic" src="audio/birthday.mp3"></audio>
+
+  <script src="js/birthday.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roommate Profile</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container profile-page">
+
+  <!-- Back Button -->
+  <a href="roommates.html" class="back-btn">⬅ Back to Roommates</a>
+
+  <!-- Profile Card -->
+  <div class="profile-card">
+
+    <img id="photo" alt="Profile Photo">
+
+    <h2 id="name"></h2>
+    <p class="role" id="role"></p>
+
+    <div class="info">
+      <p id="about"></p>
+      <p id="hobbies"></p>
+    </div>
+
+    <!-- Instagram Button -->
+    <div class="social">
+      <a id="instagram" target="_blank">📸 Instagram</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ALL PROFILE DATA */
+const profiles = {
+  Achyuta: {
+    name: "Achyuta",
+    role: "💀 Villain",
+    about: "chill guy,never smoke and drink🍷",
+    hobbies: "🎯 Hobbies: Photography, Editing",
+    photo: "images/roommates/achyuta1.jpeg",
+    instagram: "https://instagram.com/achyuta__143/"
+  },
+
+  Ram: {
+    name: "Ram",
+    role: "😎 Movie Lover",
+    about: "Loves movies, fashion and travelling.",
+    hobbies: "🎯 Hobbies:  watching Movies,singer🎤 ",
+    photo: "images/roommates/ram1.jpeg",
+    instagram: "https://instagram.com/mr__ram__babu__02"
+  },
+
+  Sonu: {
+    name: "Sonu",
+    role: "🎮 Gamer",
+    about: "Competitive gamer and tech enthusiast.",
+    hobbies: "🎯 Hobbies: Gaming,actor",
+    photo: "images/roommates/sonu1.jpeg",
+    instagram: "https://instagram.com/_.rashmiranjan._154"
+  },
+
+  Rakesh: {
+    name: "Rakesh",
+    role: "🍜 Food Lover",
+    about: "love study,social media influencer,no slangs🤫",
+    hobbies: "🎯 Hobbies: Cooking, Street food",
+    photo: "images/roommates/rakesh.jpeg",
+    instagram: "https://instagram.com/im_not_rakesh_7.5"
+  }
+};
+
+/* LOAD PROFILE BASED ON URL PARAM */
+const params = new URLSearchParams(window.location.search);
+const user = params.get("name");
+const data = profiles[user];
+
+if (data) {
+  document.getElementById("photo").src = data.photo;
+  document.getElementById("name").innerText = data.name;
+  document.getElementById("role").innerText = data.role;
+  document.getElementById("about").innerText = data.about;
+  document.getElementById("hobbies").innerText = data.hobbies;
+  document.getElementById("instagram").href = data.instagram;
+} else {
+  document.querySelector(".profile-card").innerHTML = "<h2>User not found</h2>";
+}
+</script>
+
+</body>
+</html>
